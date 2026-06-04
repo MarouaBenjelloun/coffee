@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HeroSection from "./components/HeroSection";
+import ExperiencesSection from "./components/ExperiencesSection";
+import GalerieSection from "./components/GalerieSection";
+import NouveautesSection from "./components/NouveautesSection";
+import InstagramSection from "./components/InstagramSection";
+import Footer from "./components/Footer";
+import AteliersPage from "./pages/AteliersPage";
+
+function HomePage() {
+  return (
+    <div>
+      <HeroSection />
+      <ExperiencesSection />
+      <GalerieSection />
+      <NouveautesSection />
+      <InstagramSection />
+      <Footer />
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/ateliers" element={<AteliersPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
